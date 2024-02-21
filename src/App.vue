@@ -11,18 +11,36 @@
           </v-card-title>
           <v-card-text>
             <v-form>
-              <v-text-field v-model="nome" label="Nome"></v-text-field>
+              <v-text-field
+                v-model="nome"
+                label="Nome"
+                :rules="[rules.required, rules.min, rules.max]"
+                class="mb-3"
+              ></v-text-field>
               <v-text-field
                 v-model="email"
                 label="E-mail"
                 type="email"
+                :rules="[rules.required, rules.email]"
+                class="mb-3"
               ></v-text-field>
-              <v-text-field v-model="telefone" label="Telefone"></v-text-field>
+              <v-text-field
+                v-model="telefone"
+                label="Telefone"
+                :rules="[rules.required, rules.telefone]"
+              ></v-text-field>
               <v-text-field
                 v-model="documento"
                 label="CPF / CNPJ"
+                :rules="[rules.required]"
+                class="mb-3"
               ></v-text-field>
-              <v-text-field v-model="cargo" label="Cargo"></v-text-field>
+              <v-text-field
+                v-model="cargo"
+                label="Cargo"
+                :rules="[rules.required]"
+                class="mb-3"
+              ></v-text-field>
               <v-btn color="purple-darken-2" dark>Salvar</v-btn>
             </v-form>
           </v-card-text>
