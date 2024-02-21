@@ -28,11 +28,13 @@
                 v-model="telefone"
                 label="Telefone"
                 :rules="[rules.required, rules.telefone]"
+                v-mask="['(##) #####-####', '(##) ####-####']"
               ></v-text-field>
               <v-text-field
                 v-model="documento"
                 label="CPF / CNPJ"
                 :rules="[rules.required]"
+                v-mask="['###.###.###-##', '##.###.###/####-##']"
                 class="mb-3"
               ></v-text-field>
               <v-text-field
