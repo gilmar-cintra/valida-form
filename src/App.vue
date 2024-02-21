@@ -10,7 +10,7 @@
             </h1>
           </v-card-title>
           <v-card-text>
-            <v-form>
+            <v-form ref="form">
               <v-text-field
                 v-model="nome"
                 label="Nome"
@@ -43,7 +43,9 @@
                 :rules="[rules.required]"
                 class="mb-3"
               ></v-text-field>
-              <v-btn color="purple-darken-2" dark>Salvar</v-btn>
+              <v-btn color="purple-darken-2" @click="submitForm" dark
+                >Salvar</v-btn
+              >
             </v-form>
           </v-card-text>
         </v-card>
@@ -94,6 +96,15 @@ export default {
   }),
   methods: {
     //
+    submitForm() {
+      if (this.$refs.form.validate()) {
+        console.log("nome: ", this.nome);
+        console.log("email: ", this.email);
+        console.log("telefone: ", this.telefone);
+        console.log("documento: ", this.documento);
+        console.log("cargo: ", this.cargo);
+      }
+    },
   },
 };
 </script>
